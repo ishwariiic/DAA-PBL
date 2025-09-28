@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Algorithms Visualizer | OpportuneAI</title>
+    <link rel="stylesheet" href="graph-visualization.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Opportune<span class="logo-ai">AI</span></a>
+            <nav>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="algorithms.html" class="nav-link">Algorithms</a>
+                <a href="graph-visualization.html" class="nav-link active">Graph Visualizer</a>
+                <a href="#" class="nav-link">Practice</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-btn">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="graph-container">
+        <div class="container">
+            <h1>🌐 Graph Algorithms Visualizer</h1>
+            
+            <div class="controls">
+                <button onclick="generateGraph()" class="btn">Generate Graph</button>
+                <button onclick="clearGraph()" class="btn">Clear Graph</button>
+                <button onclick="runKruskal()" class="btn algorithm-btn" id="kruskalBtn">Kruskal's MST</button>
+                <button onclick="runPrim()" class="btn algorithm-btn" id="primBtn">Prim's MST</button>
+                <button onclick="runDijkstra()" class="btn algorithm-btn" id="dijkstraBtn">Dijkstra's Path</button>
+                <button onclick="resetVisualization()" class="btn">Reset</button>
+            </div>
+
+            <div class="status" id="status">Click "Generate Graph" to create a random graph, or click on canvas to add nodes!</div>
+            
+            <div class="graph-canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="color-box" style="background: #8B5CF6;"></div>
+                    <span>Normal Node</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #EF4444;"></div>
+                    <span>Start/Current Node</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #F59E0B;"></div>
+                    <span>Visited Node</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #A78BFA;"></div>
+                    <span>Normal Edge</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #10B981;"></div>
+                    <span>MST/Shortest Path Edge</span>
+                </div>
+                <div class="legend-item">
+                    <div class="color-box" style="background: #EC4899;"></div>
+                    <span>Current Processing Edge</span>
+                </div>
+            </div>
+
+            <div class="info">
+                Click on canvas to add nodes. Nodes will be automatically connected with random weights.
+                <br>For Dijkstra's algorithm, the first node will be used as the source.
+            </div>
+        </div>
+    </main>
+
+    <script src="graph-visualization.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer - OpportuneAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="algorithms.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js"></script>
+    <style>
+        pre {
+            font-family: 'Fira Code', monospace;
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .code-tabs {
+            display: flex;
+            background: #3e3e3e;
+            padding: 0.5rem 1rem 0;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+        
+        .code-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            color: #a0a0a0;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            margin-right: 0.5rem;
+        }
+        
+        .code-tab.active {
+            color: #f8f8f2;
+            border-bottom-color: #8b5cf6;
+        }
+        
+        .code-content {
+            padding: 1rem;
+            margin: 0;
+            font-family: 'Fira Code', monospace;
+            white-space: pre;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+  
+    <header id="mainHeader">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="OpportuneAI Home">
+                <span class="logo-text">Opportune</span><span class="logo-ai">AI</span>
+            </a>
+            
+            <button class="menu-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+            
+            <nav class="nav-links" id="mainNav">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="algorithms.html" class="nav-link active">
+                    <i class="fas fa-project-diagram"></i> Algorithms
+                </a>
+                <a href="graph-visualization.html" class="nav-link">
+                    <i class="fas fa-network-wired"></i> Graph Visualizer
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-laptop-code"></i> Practice
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-rocket"></i> Get Started
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <h1 class="page-title">Algorithm Visualizer</h1>
+{{ ... }}
+        
+        <div class="algo-container">
+            
+            <div class="algo-sidebar">
+                <div class="algo-category">Searching</div>
+                <div class="algo-item active" data-algo="binary-search">Binary Search</div>
+                
+                <div class="algo-category">Sorting</div>
+                <div class="algo-item" data-algo="merge-sort">Merge Sort</div>
+                <div class="algo-item" data-algo="quick-sort">Quick Sort</div>
+                
+                <div class="algo-category">Graph</div>
+                <div class="algo-item" data-algo="kruskal-mst">Kruskal's MST</div>
+                <div class="algo-item" data-algo="prim-mst">Prim's MST</div>
+                <div class="algo-item" data-algo="dijkstra">Dijkstra's</div>
+            </div>
+
+                    
+            <div class="algo-content">
+                <div class="algo-visualization" id="visualization">
+                    <div class="visualization-container">
+                        <div class="visualization-header">
+                            <h3>Algorithm Visualization</h3>
+                        </div>
+                        <div class="visualization-controls">
+                            <button id="step-btn" class="control-btn">Step</button>
+                            <button id="play-btn" class="control-btn primary">Play</button>
+                            <button id="reset-btn" class="control-btn">Reset</button>
+                            <div class="speed-control">
+                                <label>Speed:</label>
+                                <input type="range" id="speed-slider" min="100" max="2000" value="500" step="100">
+                            </div>
+                        </div>
+                        <div class="canvas-container">
+                            <canvas id="algo-canvas" width="800" height="400"></canvas>
+                        </div>
+                        <div class="visualization-status" id="viz-status">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="algo-details">
+                    <h2 class="algo-name">Binary Search</h2>
+                    <p class="algo-description">Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing in half the portion of the list that could contain the item, until you've narrowed down the possible locations to just one.</p>
+                    
+                    <div class="complexity">
+                        <div class="complexity-item">
+                            <span class="complexity-label">Time Complexity:</span>
+                            <span class="time-complexity">O(log n)</span>
+                        </div>
+                        <div class="complexity-item">
+                            <span class="complexity-label">Space Complexity:</span>
+                            <span class="space-complexity">O(1)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="code-section">
+                        <div class="code-tabs">
+                            <div class="code-tab active" data-lang="pseudocode">Pseudocode</div>
+                            <div class="code-tab" data-lang="javascript">JavaScript</div>
+                        </div>
+                        <div class="code-block">
+                            <pre><code class="code-content" id="code-content">// Select an algorithm to view its implementation</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="pseudocode-section">
+                        <h3>Pseudocode</h3>
+                        <div class="code-block">
+                            <pre><code class="pseudocode" id="pseudocode-content">// Pseudocode will be displayed here</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="code-snippet-section">
+                        <h3>Implementation</h3>
+                        <div class="code-block">
+                            <pre><code class="code-snippet" id="code-snippet-content">// Code snippet will be displayed here</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="algo-navigation">
+                    <button id="prev-algo" class="nav-button" disabled>Previous</button>
+                    <button id="next-algo" class="nav-button primary">Next Algorithm</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="algorithms.js"></script>
+</body>
+</html>
